@@ -1,0 +1,39 @@
+name: update
+
+on: 
+  workflow_dispatch: ~
+  push:
+    paths:
+    - sources.csv
+    - wmts.xml
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: install deps
+      run: |
+        sudo apt update && sudo apt install -y gdal-bin
+    #- uses: mxschmitt/action-tmate@v3
+    - name: init
+      run: |
+        git config pull.rebase false
+        CUR_BRANCH=`git branch --show-current`
+        git fetch origin
+        git switch publish || git checkout -b publish
+        git pull origin publish || echo "no data to checkout"
+        git checkout "$CUR_BRANCH" process.py wmts.xml sources.csv
+    - name: process
+      env:
+        REPO: ${{ github.repository }}
+      run: |
+        IFS="/" REPO=($REPO)
+        python3 process.py "https://${REPO[0]}.github.io/{$REPO[1]}/"
+    - name: commit
+      run: |
+        git config user.email "workflow@github.actions"
+        git config user.name "Github Actions Workflow"
+        git add docs
+        git commit -m 'automatic content update'
+        git push --set-upstream origin publish
