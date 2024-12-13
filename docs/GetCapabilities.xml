@@ -1,0 +1,152 @@
+<?xml version="1.0" ?><Capabilities xmlns="http://www.opengis.net/wmts/1.0" xmlns:ows="http://www.opengis.net/ows/1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gml="http://www.opengis.net/gml" xsi:schemaLocation="http://www.opengis.net/wmts/1.0 http://schemas.opengis.net/wmts/1.0/wmtsGetCapabilities_response.xsd" version="1.0.0">
+    <ServiceMetadataURL xlink:href="https://acdh-oeaw.github.io/{acdh-oeaw[1]}/GetCapabilities.xml"/>
+    <ows:ServiceIdentification>
+        <ows:ServiceType>OGC WMTS</ows:ServiceType>
+        <ows:ServiceTypeVersion>1.0.0</ows:ServiceTypeVersion>
+        <ows:Title><!--Service title--></ows:Title>
+        <ows:Abstract><!--A longer description of a service--></ows:Abstract>
+        <ows:AccessConstraints><!--License information go here--></ows:AccessConstraints>
+        <!-- You can extend it with other elements - see the https://schemas.opengis.net/ows/2.0/owsServiceIdentification.xsd -->
+        <!-- While technically only ows:ServiceType, ows:ServiceTypeVersion and ows:Title are required, it is really advised to provide also ows:Abstract and ows:AccessConstraints -->
+    </ows:ServiceIdentification>
+    <ows:ServiceProvider>
+        <!-- You can extend it with other elements - see the https://schemas.opengis.net/ows/2.0/owsServiceProvider.xsdi -->
+        <!-- You can also remove the content below - the whole ows:ServiceProvider section is optional -->
+        <ows:ProviderName><!--Your or your insitution name--></ows:ProviderName>
+        <ows:ProviderSite xlink:href="URL of a website"/>
+        <ows:ServiceContact>
+            <ows:ContactInfo>
+                <ows:Address>
+                    <ows:ElectronicMailAddress><!--contact email--></ows:ElectronicMailAddress>
+                </ows:Address>
+            </ows:ContactInfo>
+        </ows:ServiceContact>
+    </ows:ServiceProvider>
+    <!-- Do not change anything below -->
+    <ows:OperationsMetadata>
+        <ows:Operation name="GetCapabilities">
+            <ows:DCP>
+                <ows:HTTP>
+                    <ows:Get xlink:href="https://acdh-oeaw.github.io/{acdh-oeaw[1]}/">
+                        <ows:Constraint name="GetEncoding">
+                            <ows:AllowedValues>
+                                <ows:Value>KVP</ows:Value>
+                            </ows:AllowedValues>
+                        </ows:Constraint>
+                    </ows:Get>
+                </ows:HTTP>
+            </ows:DCP>
+        </ows:Operation>
+        <ows:Operation name="GetTile">
+            <ows:DCP>
+                <ows:HTTP>
+                    <ows:Get xlink:href="https://acdh-oeaw.github.io/{acdh-oeaw[1]}/">
+                        <ows:Constraint name="GetEncoding">
+                            <ows:AllowedValues>
+                                <ows:Value>RESTful</ows:Value>
+                            </ows:AllowedValues>
+                        </ows:Constraint>
+                    </ows:Get>
+                </ows:HTTP>
+            </ows:DCP>
+        </ows:Operation>
+    </ows:OperationsMetadata>
+    <Contents>
+        
+        
+    <Layer>
+            <ows:Title>test</ows:Title>
+            <ows:Identifier>test</ows:Identifier>
+            <TileMatrixSetLink>
+                <TileMatrixSet>WebMercatorQuad9</TileMatrixSet>
+            </TileMatrixSetLink>
+            <Style isDefault="true">
+                <ows:Identifier>default</ows:Identifier>
+            </Style>
+            <Format>image/png</Format>
+            <ResourceURL format="image/png" resourceType="tile" template="https://acdh-oeaw.github.io/{acdh-oeaw[1]}/test/{TileMatrix}/{TileCol}/{TileRow}.png"/>
+            <ows:WGS84BoundingBox>
+                <ows:LowerCorner>16.334340549999062 47.72974119264511</ows:LowerCorner>
+                <ows:UpperCorner>17.853200375168466 48.74498411122332</ows:UpperCorner>
+            </ows:WGS84BoundingBox>
+            <ows:Abstract>A sample ESA Sentinel-2 preview image</ows:Abstract>
+            <ows:Keywords><Keyword>test</Keyword><Keyword>Sentinel-2</Keyword><Keyword>Vienna</Keyword></ows:Keywords>
+        </Layer><TileMatrixSet>
+            <ows:Identifier>WebMercatorQuad9</ows:Identifier>
+            <ows:SupportedCRS>http://www.opengis.net/def/crs/EPSG/0/3857</ows:SupportedCRS> <!-- http://www.opengis.net/def/crs/EPSG/0/3857 -->
+            <WellKnownScaleSet>urn:ogc:def:crs:EPSG:6.18:3:3857</WellKnownScaleSet> <!-- http://www.opengis.net/def/wkss/OGC/1.0/GoogleMapsCompatible -->
+            
+        <TileMatrix>
+                <ows:Identifier>1</ows:Identifier>
+                <ScaleDenominator>279541132.0143585</ScaleDenominator>
+                <TopLeftCorner>-20037508.3427892 20037508.3427892</TopLeftCorner>
+                <TileWidth>256</TileWidth>
+                <TileHeight>256</TileHeight>
+                <MatrixWidth>4</MatrixWidth>
+                <MatrixHeight>4</MatrixHeight>
+            </TileMatrix><TileMatrix>
+                <ows:Identifier>2</ows:Identifier>
+                <ScaleDenominator>139770566.00717926</ScaleDenominator>
+                <TopLeftCorner>-20037508.3427892 20037508.3427892</TopLeftCorner>
+                <TileWidth>256</TileWidth>
+                <TileHeight>256</TileHeight>
+                <MatrixWidth>8</MatrixWidth>
+                <MatrixHeight>8</MatrixHeight>
+            </TileMatrix><TileMatrix>
+                <ows:Identifier>3</ows:Identifier>
+                <ScaleDenominator>69885283.00358963</ScaleDenominator>
+                <TopLeftCorner>-20037508.3427892 20037508.3427892</TopLeftCorner>
+                <TileWidth>256</TileWidth>
+                <TileHeight>256</TileHeight>
+                <MatrixWidth>16</MatrixWidth>
+                <MatrixHeight>16</MatrixHeight>
+            </TileMatrix><TileMatrix>
+                <ows:Identifier>4</ows:Identifier>
+                <ScaleDenominator>34942641.501794815</ScaleDenominator>
+                <TopLeftCorner>-20037508.3427892 20037508.3427892</TopLeftCorner>
+                <TileWidth>256</TileWidth>
+                <TileHeight>256</TileHeight>
+                <MatrixWidth>32</MatrixWidth>
+                <MatrixHeight>32</MatrixHeight>
+            </TileMatrix><TileMatrix>
+                <ows:Identifier>5</ows:Identifier>
+                <ScaleDenominator>17471320.750897408</ScaleDenominator>
+                <TopLeftCorner>-20037508.3427892 20037508.3427892</TopLeftCorner>
+                <TileWidth>256</TileWidth>
+                <TileHeight>256</TileHeight>
+                <MatrixWidth>64</MatrixWidth>
+                <MatrixHeight>64</MatrixHeight>
+            </TileMatrix><TileMatrix>
+                <ows:Identifier>6</ows:Identifier>
+                <ScaleDenominator>8735660.375448704</ScaleDenominator>
+                <TopLeftCorner>-20037508.3427892 20037508.3427892</TopLeftCorner>
+                <TileWidth>256</TileWidth>
+                <TileHeight>256</TileHeight>
+                <MatrixWidth>128</MatrixWidth>
+                <MatrixHeight>128</MatrixHeight>
+            </TileMatrix><TileMatrix>
+                <ows:Identifier>7</ows:Identifier>
+                <ScaleDenominator>4367830.187724352</ScaleDenominator>
+                <TopLeftCorner>-20037508.3427892 20037508.3427892</TopLeftCorner>
+                <TileWidth>256</TileWidth>
+                <TileHeight>256</TileHeight>
+                <MatrixWidth>256</MatrixWidth>
+                <MatrixHeight>256</MatrixHeight>
+            </TileMatrix><TileMatrix>
+                <ows:Identifier>8</ows:Identifier>
+                <ScaleDenominator>2183915.093862176</ScaleDenominator>
+                <TopLeftCorner>-20037508.3427892 20037508.3427892</TopLeftCorner>
+                <TileWidth>256</TileWidth>
+                <TileHeight>256</TileHeight>
+                <MatrixWidth>512</MatrixWidth>
+                <MatrixHeight>512</MatrixHeight>
+            </TileMatrix><TileMatrix>
+                <ows:Identifier>9</ows:Identifier>
+                <ScaleDenominator>1091957.546931088</ScaleDenominator>
+                <TopLeftCorner>-20037508.3427892 20037508.3427892</TopLeftCorner>
+                <TileWidth>256</TileWidth>
+                <TileHeight>256</TileHeight>
+                <MatrixWidth>1024</MatrixWidth>
+                <MatrixHeight>1024</MatrixHeight>
+            </TileMatrix></TileMatrixSet></Contents>
+</Capabilities>
